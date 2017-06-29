@@ -1,3 +1,3 @@
 language: objective-c
 script:
-  - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Sources/SquareInRect.swift
+  - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/SquareInRect.swift
