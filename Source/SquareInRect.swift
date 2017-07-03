@@ -40,4 +40,5 @@ class SquareInRectTest: XCTestCase {
    }
 }
 
-SquareInRectTest().testExample()
+let testSuite = SquareInRectTest.defaultTestSuite()
+testSuite.run()
