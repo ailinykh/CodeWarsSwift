@@ -4,3 +4,4 @@ xcode_sdk: iphonesimulator10.1
 script:
   - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/SquareInRect.swift
   - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/PrizeDraw.swift
+  - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/JohnAndAnn.swift
