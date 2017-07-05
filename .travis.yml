@@ -7,3 +7,4 @@ script:
   - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/JohnAndAnn.swift
   - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/PlayingWithPassphrases.swift
   - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/GiveMeADiamond.swift
+  - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/SumOfDigits.swift
