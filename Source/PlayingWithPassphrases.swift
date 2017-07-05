@@ -13,72 +13,46 @@ func playPass(_ s: String, _ n: Int) -> String {
 
 extension String {
     mutating func shift(_ n: Int) {
-        let ascii = unicodeScalars.filter{$0.isASCII}.map{$0.value}
-        let uppercasedRange = 65...90
-        let downcasedRange = 97...122
-
-        for (idx, c) in ascii.enumerated() {
-            let char = Int(c)
-            if uppercasedRange.contains(char) {
-                let newChar = shiftedChar(uppercasedRange, char, n)
-                replaceCharAtIndex(Character(UnicodeScalar(newChar)!), idx)
+        self = String(unicodeScalars.enumerated().map {
+            switch $1.value {
+            case 65...90, 97...122:
+                return Character(UnicodeScalar(shiftedLetter($1.value, n))!)
+            default:
+                return Character($1)
             }
-            else if downcasedRange.contains(char) {
-                let newChar = shiftedChar(downcasedRange, char, n)
-                replaceCharAtIndex(Character(UnicodeScalar(newChar)!), idx)
-            }
-        }
+        })
     }
 
     mutating func complementDigitsToNine() {
-        let ascii = unicodeScalars.filter{$0.isASCII}.map{$0.value}
-        let digitsRange = 48...57
-
-        for (idx, c) in ascii.enumerated() {
-            let char = Int(c)
-            if digitsRange.contains(char) {
-                let digit = Int(String(Character(UnicodeScalar(char)!)))!
-                let newDigit = 9 - digit
-                replaceCharAtIndex(Character("\(newDigit)"), idx)
+        self = String(unicodeScalars.enumerated().map {
+            switch $1.value {
+            case 48...57:
+                return Character("\(9-Int("\(Character($1))")!)")
+            default:
+                return Character($1)
             }
-        }
+        })
     }
 
     mutating func uppercaseAndDowncaseEachLetter() {
-        let ascii = unicodeScalars.filter{$0.isASCII}.map{$0.value}
-        let uppercasedRange = 65...90
-        let downcasedRange = 97...122
-
-        for (idx, c) in ascii.enumerated() {
-            let char = Int(c)
-            if uppercasedRange.contains(char) && idx % 2 != 0 {
-                let newChar = String(Character(UnicodeScalar(char)!))
-                replaceCharAtIndex(Character(newChar.lowercased()), idx)
+        self = String(unicodeScalars.enumerated().map {
+            switch $1.value {
+            case 65...90, 97...122:
+                return $0 % 2 == 0 ? Character("\($1)".uppercased()) : Character("\($1)".lowercased())
+            default:
+                return Character($1)
             }
-            else if downcasedRange.contains(char) && idx % 2 == 0 {
-                let newChar = String(Character(UnicodeScalar(char)!))
-                replaceCharAtIndex(Character(newChar.uppercased()), idx)
-            }
-        }
-    }
-
-    mutating func shiftedChar(_ range: CountableClosedRange<Int>, _ char: Int, _ offset: Int) -> Int {
-        var newChar = char + offset
-        if !range.contains(newChar) {
-            newChar = range.lowerBound-1 + (newChar - range.upperBound)
-        }
-        return newChar
+        })
     }
 
     mutating func reverse() {
         self = String(Array(characters).reversed())
     }
 
-    mutating func replaceCharAtIndex(_ char: Character, _ idx: Int)
-    {
-        let start = index(startIndex, offsetBy: idx)
-        let end = index(startIndex, offsetBy: idx + 1)
-        replaceSubrange(start..<end, with: String(char))
+    func shiftedLetter(_ char: UInt32, _ n: Int) -> UInt32 {
+        let letters = Array<UInt32>([65...90, 97...122].joined())
+        let position = letters.index(of: char)! + n
+        return letters[position >= letters.count ? position - letters.count : position]
     }
 }
 
