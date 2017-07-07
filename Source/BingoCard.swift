@@ -18,7 +18,7 @@ func getCard() -> [String] {
     return bingo
 }
 
-extension Array where Element == Int {
+extension Array where Generator.Element == Int {
     mutating func addRandomIntFromRange(_ range: CountableClosedRange<UInt32>) {
         var n:Int
         repeat {
