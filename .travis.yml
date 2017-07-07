@@ -2,6 +2,7 @@ language: objective-c
 osx_image: xcode8.1
 xcode_sdk: iphonesimulator10.1
 script:
+  - swift --version
   - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/SquareInRect.swift
   - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/PrizeDraw.swift
   - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/JohnAndAnn.swift
