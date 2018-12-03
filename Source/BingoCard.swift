@@ -1,6 +1,8 @@
 import Cocoa
 import XCTest
 
+// https://www.codewars.com/kata/bingo-card/
+
 func getCard() -> [String] {
     let letters = ["B", "I", "N", "G", "O"]
     var bingo = [String]()
@@ -90,5 +92,4 @@ class SolutionTest: XCTestCase {
     }
 }
 
-let testSuite = SolutionTest.defaultTestSuite()
-testSuite.run()
+SolutionTest.defaultTestSuite.run()

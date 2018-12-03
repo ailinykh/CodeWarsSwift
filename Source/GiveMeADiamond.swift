@@ -1,6 +1,8 @@
 import Cocoa
 import XCTest
 
+// https://www.codewars.com/kata/give-me-a-diamond
+
 func diamond(_ size: Int) -> String? {
     guard size % 2 != 0, size > 0 else { return nil }
     var arr = [String](), currentSize = size
@@ -28,5 +30,4 @@ class DiamondTest: XCTestCase {
     }
 }
 
-let testSuite = DiamondTest.defaultTestSuite()
-testSuite.run()
+DiamondTest.defaultTestSuite.run()

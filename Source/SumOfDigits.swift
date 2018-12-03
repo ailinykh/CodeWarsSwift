@@ -1,8 +1,10 @@
 import Cocoa
 import XCTest
 
+// https://www.codewars.com/kata/sum-of-digits-slash-digital-root
+
 func digitalRoot(of number: Int) -> Int {
-    let num = "\(number)".characters.map{ Int("\($0)")! }.reduce(0, +)
+    let num = "\(number)".map{ Int("\($0)")! }.reduce(0, +)
     return num < 10 ? num : digitalRoot(of: num)
 }
 
@@ -16,5 +18,4 @@ class SolutionTest: XCTestCase {
     }
 }
 
-let testSuite = SolutionTest.defaultTestSuite()
-testSuite.run()
+SolutionTest.defaultTestSuite.run()

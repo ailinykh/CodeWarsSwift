@@ -1,10 +1,12 @@
 import Cocoa
 import XCTest
 
+// https://www.codewars.com/kata/prize-draw
+
 func rank(_ st: String, _ we: [Int], _ n: Int) -> String {
     // your code
     let participants = st.components(separatedBy: ",")
-    guard st.characters.count > 0 else {
+    guard st.count > 0 else {
         return "No participants"
     }
     guard participants.count > n else {
@@ -22,13 +24,13 @@ func nameRank(_ name: String) -> Int {
     var rank = 0
     let alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-    for (_, char) in name.lowercased().characters.enumerated() {
-        if let idx = alphabet.characters.index(of: char) {
+    for (_, char) in name.lowercased().enumerated() {
+        if let idx = alphabet.index(of: char) {
             rank += alphabet.distance(from: alphabet.startIndex, to: idx) + 1
         }
     }
 
-    return rank + name.characters.count
+    return rank + name.count
 }
 
 class RankTest: XCTestCase {
@@ -48,5 +50,4 @@ class RankTest: XCTestCase {
     }
 }
 
-let testSuite = RankTest.defaultTestSuite()
-testSuite.run()
+RankTest.defaultTestSuite.run()

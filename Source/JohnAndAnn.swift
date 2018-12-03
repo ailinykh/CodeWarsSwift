@@ -1,6 +1,8 @@
 import Cocoa
 import XCTest
 
+// https://www.codewars.com/kata/john-and-ann-sign-up-for-codewars
+
 func both(_ n : Int) -> ([Int], [Int]) {
     var ann = Array.init(repeating: 1, count: n)
     var john = Array.init(repeating: 0, count: n)
@@ -47,5 +49,4 @@ class AnnJohnTest: XCTestCase {
     }
 }
 
-let testSuite = AnnJohnTest.defaultTestSuite()
-testSuite.run()
+AnnJohnTest.defaultTestSuite.run()

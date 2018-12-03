@@ -1,6 +1,8 @@
 import Cocoa
 import XCTest
 
+// https://www.codewars.com/kata/playing-with-passphrases
+
 func playPass(_ s: String, _ n: Int) -> String {
     // your code
     var s = s
@@ -46,7 +48,7 @@ extension String {
     }
 
     mutating func reverse() {
-        self = String(Array(characters).reversed())
+        self = String(self.reversed())
     }
 
     func shiftedLetter(_ char: UInt32, _ n: Int) -> UInt32 {
@@ -74,5 +76,4 @@ class PassphrasesTest: XCTestCase {
     }
 }
 
-let testSuite = PassphrasesTest.defaultTestSuite()
-testSuite.run()
+PassphrasesTest.defaultTestSuite.run()

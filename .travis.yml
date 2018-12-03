@@ -3,10 +3,6 @@ osx_image: xcode8.3
 xcode_sdk: macosx10.12
 script:
   - swift --version
-  - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/SquareInRect.swift
-  - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/PrizeDraw.swift
-  - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/JohnAndAnn.swift
-  - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/PlayingWithPassphrases.swift
-  - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/GiveMeADiamond.swift
-  - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/SumOfDigits.swift
-  - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/BingoCard.swift
+  # To run just one particular kata use
+  # - swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks Source/<KATA>.swift
+  - for f in Source/*.swift; do; swift -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks "$f"; done;

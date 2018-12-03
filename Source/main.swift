@@ -1,5 +1,5 @@
 import Foundation
-
+/*
 let expectedClassCount = objc_getClassList(nil, 0)
 var allClasses = UnsafeMutablePointer<AnyClass?>.allocate(capacity: Int(expectedClassCount))
 var autoreleasingAllClasses = AutoreleasingUnsafeMutablePointer<AnyClass?>(allClasses)
@@ -10,3 +10,4 @@ for i in 0 ..< actualClassCount {
         print(String(describing: currentClass), currentClass)
     }
 }
+*/

@@ -1,6 +1,8 @@
 import Cocoa
 import XCTest
 
+// https://www.codewars.com/kata/rectangle-into-squares
+
 func sqInRect(_ lng: Int, _ wdth: Int) -> [Int]? {
     // your code
     if lng == wdth {
@@ -40,5 +42,4 @@ class SquareInRectTest: XCTestCase {
    }
 }
 
-let testSuite = SquareInRectTest.defaultTestSuite()
-testSuite.run()
+SquareInRectTest.defaultTestSuite.run()
