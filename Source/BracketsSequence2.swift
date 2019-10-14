@@ -31,20 +31,16 @@ func bracketsSequence2(_ input: String) -> String {
             guard
                 "({[".contains(char),
                 i < characters.count - 1,
-                output[i] == "?"
+                output[i] == "?",
+                let j = output.suffix(from: i+1).firstIndex(of: "?"),
+                characters[i] == characters[j].pair
             else { continue }
-            
-            guard let j = output.suffix(from: i+1).firstIndex(of: "?") else {
-                continue
-            }
             
 //            print(char, i, j, found, characters.count, characters.toString(), output.count, output.joined())
             
-            if characters[i] == characters[j].pair {
-                found = true
-                output[i] = String(characters[i])
-                output[j] = String(characters[j])
-            }
+            found = true
+            output[i] = String(characters[i])
+            output[j] = String(characters[j])
         }
     } while found
     return output.joined().components(separatedBy: "?").compactMap{$0}.sorted{$0.count > $1.count}.first ?? ""
@@ -52,10 +48,10 @@ func bracketsSequence2(_ input: String) -> String {
 
 class BracketsTest: XCTestCase {
     static var allTests = [
-        ("Test Brackets 2 Sequence", testBracketsSequence2)
+        ("Test Brackets Sequence 2", testBracketsSequence)
     ]
     
-    func testBracketsSequence2() {
+    func testBracketsSequence() {
         XCTAssertEqual(bracketsSequence2("((}{))()[()]"), "()[()]")
         XCTAssertEqual(bracketsSequence2("(())()}[{[[]]}]"), "[{[[]]}]")
         XCTAssertEqual(bracketsSequence2("(())(){[{[[]]}]"), "[{[[]]}]")
