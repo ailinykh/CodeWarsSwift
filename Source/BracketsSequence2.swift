@@ -43,7 +43,12 @@ func bracketsSequence2(_ input: String) -> String {
             output[j] = String(characters[j])
         }
     } while found
-    return output.joined().components(separatedBy: "?").compactMap{$0}.sorted{$0.count > $1.count}.first ?? ""
+
+    return output.joined()
+            .components(separatedBy: "?")
+            .compactMap{$0}
+            .sorted{$0.count > $1.count}
+            .first ?? ""
 }
 
 class BracketsTest: XCTestCase {
